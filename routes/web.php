@@ -7,4 +7,5 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::resource('productos', ProductosController::class);
+Route::resource('productos',ProductosController::class);
+

@@ -28,12 +28,14 @@ class ProductosController extends Controller
      */
     public function store(Request $request)
     {
+        // Validar los datos del formulario
         $validated = $request->validate([
             'nombre' => 'required|string|max:100',
-            'descripcion' => 'required|text|max:100',
-            'precio' => 'required|double'
+            'descripcion' => 'required|string|max:100', // Corregido de 'text' a 'string'
+            'precio' => 'required|numeric'
         ]);
 
+        // Crear una nueva instancia del modelo y guardar los datos
         Producto::create($validated);
 
         return redirect()->route('productos.index');
