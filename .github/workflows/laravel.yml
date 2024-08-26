@@ -50,6 +50,13 @@ jobs:
     - name: Install Dependencies
       run: composer install --no-dev --optimize-autoloader --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
 
+    - name: Verify PHPUnit Installation
+      run: |
+        if [ ! -f ./vendor/bin/phpunit ]; then
+          echo "PHPUnit not found in vendor/bin"
+          exit 1
+        fi
+
     - name: Generate key
       run: php artisan key:generate
 
