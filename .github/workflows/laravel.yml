@@ -50,6 +50,9 @@ jobs:
     - name: Install Dependencies
       run: composer install --no-dev --optimize-autoloader --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
 
+    - name: List files in vendor/bin
+      run: ls -l ./vendor/bin
+
     - name: Verify PHPUnit Installation
       run: |
         if [ -f ./vendor/bin/phpunit ]; then
